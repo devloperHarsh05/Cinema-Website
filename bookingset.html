@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grand Hotel Booking</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <h1>Welcome to Booking Seat</h1>
+  <p>Seat available: <span id="availability"></span></p>
+  
+  <button id="bookRoom" class="btn btn-primary">Book Now</button>
+  <a href="homepage.html"><button id="back" class="btn btn-warning">Back TO HomePage</button></a>
+</div>
+
+<script>
+let hotel = {
+  name: "MOVIE ",
+  rooms: 250,
+  booked: 124,
+  checkAvailability: function() {
+    return this.rooms - this.booked;
+  }
+};
+
+function updateAvailability() {
+  document.getElementById('availability').textContent = hotel.checkAvailability();
+}
+
+document.getElementById('bookRoom').onclick = function() {
+  if(hotel.checkAvailability() > 0) {
+    hotel.booked++;
+    updateAvailability();
+    alert('Success! Booking completed.');
+  } else {
+    alert('Sorry, Seat not available.');
+  }
+};
+
+updateAvailability();
+</script>
+<style>
+  body{
+      background-image: url(IMG-20240308-WA0016.jpg);
+      background-position: center;
+  }
+  </style>
+</body>
+</html>

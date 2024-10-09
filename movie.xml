@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<movielist>
+    <movie>
+        <img>salaar</img>
+        <name>SALAAR</name>
+        <price>249</price>
+        <category>bollywood</category>
+    </movie>
+    <movie>
+        <img>Animal</img>
+        <name>ANIMAL</name>
+        <price>299</price>
+        <category>bollywood</category>
+    </movie>
+    <movie>
+        <img>Brahmastra</img>
+        <name>BRAHMASTRA</name>
+        <price>199</price>
+        <category>bollywood</category>
+    </movie>
+    <movie>
+        <img>AVATAR</img>
+        <name>AVATAR</name>
+        <price>599</price>
+        <category>hollywood</category>
+    </movie>
+    <movie>
+        <img>AVENGERS</img>
+        <name>AVENGERS ENDGAMS</name>
+        <price>299</price>
+        <category>hollywood</category>
+    </movie>
+    <movie>
+        <img>THOR</img>
+        <name>THOR</name>
+        <price>299</price>
+        <category>hollywood</category>
+    </movie>
+</movielist>

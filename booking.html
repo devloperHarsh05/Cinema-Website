@@ -1,0 +1,95 @@
+<html lang="en">
+<head>
+    <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="stylesheet" href="booking.css">
+    <style>
+        select{
+            background-color: darkblue;
+            border:  1px solid black;
+            border-radius: 50%;
+            padding:  10px  10px 10px 10px;
+            font-size: 20px;
+            font-family: 'Times New Roman', Times, serif;
+            line-height: 2;
+            align-items: center;
+            color: white;
+            padding-top: 10px;
+            padding-left: 30px;
+        }
+    </style>
+    <script>
+        $(document).ready(
+            function () {
+                $("#s1").change(function () {
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("post", "movie.xml", true);
+                    xhr.send();
+                    xhr.onreadystatechange = function () {
+                        var s1 = $("#s1").val();
+                        console.log(s1);    
+                            if(this.readyState == 4 && this.status ==200)
+												{
+                                                 var xmlDoc = xhr.responseXML;
+                                                console.log(xmlDoc);
+                                                var t = "";
+                                                t+='<section id="card_effects"><div class="row">';
+                                $(xmlDoc).find("movie").each(function () {
+                                var bt = $(this).find('category').text();
+                                var st = $(this).find('name').text();
+                                var pr = $(this).find('price').text();
+                                var pim=$(this).find('img').text();
+						        pim=pim+".jpg";
+                                if (bt == s1 || s1 == 'All movies') {
+                                t+='<div class="col-md-3 col-xs-3">'
+				+'<div class="card text-center">'
+                    +'<div class="card-img">'
+						+'<img src="image/' + pim + '" class="rounded-thumbnail" alt="cinque terre" width="300" height="200">'
+					+'</div>'
+					+'<div class="card-body">'
+						+'<h3>'+st+'</h3><p>Price: '+pr+'/-</p><p>'+bt+'</p>'
+						+'<a href="review.html"><button class="btn btn-primary">Review More</button></a>'
+						+'<a href="../ajaxmobliedata/payment.html"><button class="btn btn-success">Payment</button></a>'
+                        +'<a href="bookingset.html"><button class="btn btn-warning">Check Booking</button></a>'
+					+'</div>'
+				+'</div>'
+			+'</div>';
+         }
+        });
+        t+='</div></section>';
+        $('#d1').html(t);
+        }
+        }
+        }); 
+       });
+    </script>
+    <title>ALL MOVIES</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <label class="col-md-5" style="padding-left: 380px; color: blue; font-size: 20px; font-family: 'Times New Roman', Times, serif; padding-top: 10px;">Movies:</label>
+            <div class="col-sm-7 col-md-4">
+                <select id="s1" class="classselect">
+                    <option hidden>Select Categories</option>
+                    <option value="bollywood">Bollywood</option>
+                    <option value="hollywood">Hollywood</option>
+                    <option value="All movies">All movies</option>
+                </select>
+            </div>
+        
+            <div id="d1"></div>
+        </div>
+        <a href="homepage.html"> <button type="reset" class="btn" style="size: 20px; background-color: red; margin: 20px 20px 20px 20px; font-size: larger; font-family: 'Times New Roman', Times, serif; color: white;" id="back">Back</button></a>
+        </div>
+        
+        <style>
+            body{
+                background-image: url(../cinema/IMG-20240308-WA0016.jpg);
+                background-position: center;
+            }
+            </style>
+</body>
+</html>

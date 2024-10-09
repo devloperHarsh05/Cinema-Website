@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Movie Review Page</title>
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<style>
+  .review-form {
+    margin-top: 20px;
+  }
+  .review {
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    padding: 15px;
+    margin-top: 15px;
+  }
+</style>
+</head>
+<body>
+  <style>
+    body{
+        background-image: url(IMG-20240308-WA0016.jpg);
+        background-position: center;
+    }
+    </style>  
+<div class="container">
+  <h2 class="mt-5">Movie Reviews</h2>
+  <div class="review-form">
+    <h4>Submit your review</h4>
+    <form id="reviewForm">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" required>
+      </div>
+      <div class="form-group">
+        <label for="review">Review:</label>
+        <textarea class="form-control" id="review" rows="5" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit Review</button>
+    </form>
+    <a href="booking.html"><button id="back" class="btn btn-warning">Back</button></a>
+  </div>
+  <div id="reviewsDisplay" class="mt-5">
+    <h4>User Reviews</h4>
+  </div>
+</div>
+<script src="../ajaxmobliedata/jquery.js"></script>
+<script src="../ajaxmobliedata/js/bootstrap.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('#reviewForm').submit(function(e) {
+    e.preventDefault();
+    var name = $('#name').val();
+    var content = $('#review').val();
+    var reviewHtml = '<div class="review"><h5>' + name + '</h5><p>' + content + '</p></div>';
+    $('#reviewsDisplay').prepend(reviewHtml);
+    $('#reviewForm')[0].reset(); 
+  });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+*{
+	margin:0px;
+	padding:0px;
+	box-sizing: border-box; 
+	
+}
+body{
+	background:transparent;
+	background-size: cover;
+	background-attachment: fixed;
+	font-family: new time roman;
+	
+}
+h1{
+	font-size:50px;
+	font:bold;
+	color:white;
+}
+.jumbotron{
+	background-color: green;
+	text-align: center;
+	background:transparent;
+	box-shadow: -1px 1px 20px 5px black;
+	background: rgba(0 ,0 ,0 ,0.1);
+	
+}
+.jumbotron:hover{
+	transform: scale(1.1);
+}
+.cad-img{
+	overflow: hidden;
+	margin:20px 20px 20px 20px;
+	background:transparent;
+	
+}
+.card-img img{
+	transition:all 1.3s ease;
+}
+.card-img:hover img{
+	transform: scale(1.2);
+}

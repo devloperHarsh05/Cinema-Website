@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Seat Checkbox Design</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<style>
+  .seat-checkbox {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    position: relative;
+  }
+  .seat-checkbox input[type="checkbox"] {
+    visibility: hidden;
+  }
+  .seat-checkbox label {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #ddd;
+    border-radius: 15%;
+  }
+  .seat-checkbox input[type="checkbox"]:checked + label {
+    background-color: darkblue;
+  }
+</style>
+</head>
+<body>
+
+<div class="seat-checkbox">
+  <input type="checkbox" id="seat1" />
+  <label for="seat1"></label>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+  // jQuery to toggle the class on click for visual feedback
+  $(document).ready(function(){
+    $('.seat-checkbox input').click(function(){
+      $(this).next('label').toggleClass('checked');
+    });
+  });
+</script>
+
+</body>
+</html>
